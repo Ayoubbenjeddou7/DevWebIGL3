@@ -80,6 +80,26 @@ async function ex8() {
   await wait(2000);
   console.log("Fin après 2s");
 }
+// Exercice 9
+async function ex9() {
+  const container = document.getElementById("posts");
+  container.innerHTML = "<li>Chargement...</li>";
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const posts = await res.json();
+    container.innerHTML = "";
+    posts.slice(0,5).forEach(p => {
+      const li = document.createElement("li");
+      li.textContent = p.title;
+      container.appendChild(li);
+      console.log("Titre:", p.title);
+    });
+  } catch (err) {
+    container.innerHTML = `<li>Erreur: ${err.message}</li>`;
+    console.error(err);
+  }
+}
 
 
 ex1();
@@ -90,3 +110,4 @@ ex5();
 ex6();
 ex7();
 ex8();
+ex9();
