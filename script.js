@@ -73,6 +73,14 @@ function ex7() {
   console.log("Notes >= 10:", notes.filter(n=>n>=10));
 }
 
+// Exercice 8
+const wait = ms => new Promise(res => setTimeout(res, ms));
+async function ex8() {
+  console.log("Début");
+  await wait(2000);
+  console.log("Fin après 2s");
+}
+
 
 ex1();
 ex2();
@@ -81,3 +89,4 @@ ex4();
 ex5();
 ex6();
 ex7();
+ex8();
