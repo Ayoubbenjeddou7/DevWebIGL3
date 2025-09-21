@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style_tp2.css" />
+  </head>
+  <body>
+    <h1>Ma To-Do List</h1>
+    <div class="container">
+      <div class="top-bar">
+        <input type="text" id="tacheInput" placeholder="Ajouter une tâche..." />
+        <button id="ajouterBtn">Ajouter</button>
+        <button id="supprimerBtn">Tout Supprimer</button>
+      </div>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Rechercher une tâche..."
+      />
+
+      <ul id="listeTaches"></ul>
+
+      <div id="stats"></div>
+    </div>
+
+    <script src="script_tp2.js"></script>
+  </body>
+</html>
