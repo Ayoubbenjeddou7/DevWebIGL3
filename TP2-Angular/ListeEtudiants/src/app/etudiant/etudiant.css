@@ -1,0 +1,39 @@
+.etudiant-card {
+  border: 2px solid #369;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+.form-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.form-section label {
+  display: block;
+}
+
+.form-section input {
+  margin-top: 10px;
+  width: 100%;
+}

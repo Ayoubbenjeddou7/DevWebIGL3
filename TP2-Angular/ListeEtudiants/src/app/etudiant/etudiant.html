@@ -1,0 +1,38 @@
+<div class="etudiant-card">
+  <h2>{{etudiant.name | uppercase}}</h2>
+  
+  <table>
+    <tr>
+      <td><strong>ID:</strong></td>
+      <td>{{etudiant.id}}</td>
+    </tr>
+    <tr>
+      <td><strong>Prénom:</strong></td>
+      <td>{{etudiant.name}}</td>
+    </tr>
+    <tr>
+      <td><strong>Nom:</strong></td>
+      <td>{{etudiant.lastname}}</td>
+    </tr>
+    <tr>
+      <td><strong>Classe:</strong></td>
+      <td>{{etudiant.classe}}</td>
+    </tr>
+    <tr>
+      <td><strong>Moyenne:</strong></td>
+      <td>{{etudiant.average | percent}}</td>
+    </tr>
+    <tr>
+      <td><strong>Date de naissance:</strong></td>
+      <td>{{etudiant.birthdate | date:'dd/MM/yyyy'}}</td>
+    </tr>
+  </table>
+
+  <div class="form-section">
+    <h3>Modifier le nom</h3>
+    <label>
+      <strong>Nom: </strong>
+      <input [(ngModel)]="etudiant.name" placeholder="nom"/>
+    </label>
+  </div>
+</div>

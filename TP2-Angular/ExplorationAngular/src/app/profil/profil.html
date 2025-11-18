@@ -1,0 +1,29 @@
+<div class="profil-container">
+  <h2>Formulaire de Profil</h2>
+  
+  <div class="form-group">
+    <label for="prenom">Prénom:</label>
+    <input 
+      id="prenom"
+      type="text" 
+      [(ngModel)]="utilisateur.prenom" 
+      placeholder="Entrez votre prénom"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="age">Âge:</label>
+    <input 
+      id="age"
+      type="number" 
+      [(ngModel)]="utilisateur.age" 
+      placeholder="Entrez votre âge"
+    />
+  </div>
+
+  <div class="affichage">
+    <h3>Aperçu en temps réel:</h3>
+    <p><strong>Prénom:</strong> {{ utilisateur.prenom }}</p>
+    <p><strong>Âge:</strong> {{ utilisateur.age }}</p>
+  </div>
+</div>
