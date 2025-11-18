@@ -1,0 +1,565 @@
+<!-- Remplacez tout le contenu de app.component.html par ceci -->
+
+<div class="evaluation-container">
+  <header class="header">
+    <h1>Évaluation Angular</h1>
+    <p class="subtitle">QCM et Partie Théorique - Outils de Développement</p>
+  </header>
+
+  <div class="content-grid">
+    <!-- Section gauche : QCM -->
+    <section class="qcm-section">
+      <h2 class="section-title">📝 Questions à Choix Multiples</h2>
+
+      <!-- Partie 1 : Outils de développement -->
+      <div class="part-card">
+        <h3>Partie 1 : Outils de Développement Angular</h3>
+        
+        <div class="question" (click)="toggleAnswer(1)">
+          <p>1. Quelle est la principale fonction de Node.js dans le développement Angular ?</p>
+          <ul class="options">
+            <li [class.correct]="showAnswers && answers[0] === 'a'">a) Un environnement d'exécution pour le code JavaScript côté serveur</li>
+            <li>b) Un éditeur de code source pour écrire du code Angular</li>
+            <li>c) Un gestionnaire de packages pour installer les dépendances Angular</li>
+            <li>d) Un framework front-end pour créer des interfaces utilisateur</li>
+          </ul>
+          @if (showAnswers && answers[0] === 'a') {
+            <div class="explanation">
+              ✅ Correct : Node.js est un environnement d'exécution JavaScript côté serveur nécessaire pour Angular CLI.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(2)">
+          <p>2. Quelle commande permet d'installer Angular CLI globalement sur votre système ?</p>
+          <ul class="options">
+            <li>a) npm install -g @angular/core</li>
+            <li>b) npm install @angular/cli</li>
+            <li [class.correct]="showAnswers && answers[1] === 'c'">c) npm install -g @angular/cli</li>
+            <li>d) ng new my-app</li>
+          </ul>
+          @if (showAnswers && answers[1] === 'c') {
+            <div class="explanation">
+              ✅ Correct : L'option -g permet l'installation globale d'Angular CLI.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(3)">
+          <p>3. Parmi les éditeurs de code suivants, lequel est recommandé pour le développement Angular ?</p>
+          <ul class="options">
+            <li>a) Notepad++</li>
+            <li [class.correct]="showAnswers && answers[2] === 'b'">b) Visual Studio Code</li>
+            <li>c) Sublime Text</li>
+            <li>d) Eclipse</li>
+          </ul>
+          @if (showAnswers && answers[2] === 'b') {
+            <div class="explanation">
+              ✅ Correct : VS Code est recommandé pour Angular grâce à ses extensions dédiées.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(4)">
+          <p>4. Quel fichier dans un projet Angular contient les dépendances du projet ?</p>
+          <ul class="options">
+            <li>a) angular.json</li>
+            <li [class.correct]="showAnswers && answers[3] === 'b'">b) package.json</li>
+            <li>c) tsconfig.json</li>
+            <li>d) README.md</li>
+          </ul>
+          @if (showAnswers && answers[3] === 'b') {
+            <div class="explanation">
+              ✅ Correct : package.json contient les dépendances du projet gérées par npm.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(5)">
+          <p>5. Quelle est la commande pour créer un nouveau projet Angular nommé "ma-app" ?</p>
+          <ul class="options">
+            <li>a) ng create ma-app</li>
+            <li>b) ng init ma-app</li>
+            <li [class.correct]="showAnswers && answers[4] === 'c'">c) ng new ma-app</li>
+            <li>d) ng generate app ma-app</li>
+          </ul>
+          @if (showAnswers && answers[4] === 'c') {
+            <div class="explanation">
+              ✅ Correct : ng new est la commande standard pour créer un nouveau projet Angular.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(6)">
+          <p>6. Quel est le rôle de la commande ng serve ?</p>
+          <ul class="options">
+            <li>a) Compiler le projet Angular en un fichier exécutable</li>
+            <li [class.correct]="showAnswers && answers[5] === 'b'">b) Lancer un serveur de développement et recharger l'application</li>
+            <li>c) Installer les dépendances du projet</li>
+            <li>d) Générer des composants, services et autres éléments Angular</li>
+          </ul>
+          @if (showAnswers && answers[5] === 'b') {
+            <div class="explanation">
+              ✅ Correct : ng serve lance le serveur de développement avec rechargement automatique.
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Partie 2 : Création de projet -->
+      <div class="part-card">
+        <h3>Partie 2 : Création d'un Projet Angular</h3>
+        
+        <div class="question" (click)="toggleAnswer(7)">
+          <p>1. Quel répertoire contient les fichiers sources de l'application Angular ?</p>
+          <ul class="options">
+            <li [class.correct]="showAnswers && answers[6] === 'a'">a) src/</li>
+            <li>b) dist/</li>
+            <li>c) node_modules/</li>
+            <li>d) e2e/</li>
+          </ul>
+          @if (showAnswers && answers[6] === 'a') {
+            <div class="explanation">
+              ✅ Correct : Le répertoire src/ contient les fichiers sources de l'application.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(8)">
+          <p>2. Dans quel fichier définissez-vous les modules, composants, services ?</p>
+          <ul class="options">
+            <li>a) main.ts</li>
+            <li [class.correct]="showAnswers && answers[7] === 'b'">b) app.module.ts</li>
+            <li>c) index.html</li>
+            <li>d) styles.css</li>
+          </ul>
+          @if (showAnswers && answers[7] === 'b') {
+            <div class="explanation">
+              ✅ Correct : app.module.ts définit les modules, composants et services de l'application.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(9)">
+          <p>3. Quel est le rôle du fichier angular.json dans un projet Angular ?</p>
+          <ul class="options">
+            <li>a) Configurer les dépendances npm du projet</li>
+            <li [class.correct]="showAnswers && answers[8] === 'b'">b) Définir les configurations de compilation, les entrées et sorties</li>
+            <li>c) Spécifier les règles de linting pour le code TypeScript</li>
+            <li>d) Définir les styles globaux de l'application</li>
+          </ul>
+          @if (showAnswers && answers[8] === 'b') {
+            <div class="explanation">
+              ✅ Correct : angular.json configure le workspace Angular.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(10)">
+          <p>4. Quelle commande Angular CLI utilisez-vous pour générer un nouveau composant header ?</p>
+          <ul class="options">
+            <li>a) ng new component header</li>
+            <li>b) ng generate header</li>
+            <li [class.correct]="showAnswers && answers[9] === 'c'">c) ng generate component header</li>
+            <li>d) ng create component header</li>
+          </ul>
+          @if (showAnswers && answers[9] === 'c') {
+            <div class="explanation">
+              ✅ Correct : ng generate component est la commande pour générer un nouveau composant.
+            </div>
+          }
+        </div>
+
+        <div class="question" (click)="toggleAnswer(11)">
+          <p>5. Quel est le rôle du fichier tsconfig.json dans un projet Angular ?</p>
+          <ul class="options">
+            <li [class.correct]="showAnswers && answers[10] === 'a'">a) Configurer le compilateur TypeScript pour le projet</li>
+            <li>b) Définir les styles CSS globaux</li>
+            <li>c) Spécifier les configurations de test unitaire</li>
+            <li>d) Gérer les dépendances des modules Angular</li>
+          </ul>
+          @if (showAnswers && answers[10] === 'a') {
+            <div class="explanation">
+              ✅ Correct : tsconfig.json configure les options TypeScript.
+            </div>
+          }
+        </div>
+      </div>
+
+      <button class="check-answers-btn" (click)="toggleAllAnswers()">
+        {{ showAnswers ? 'Masquer les réponses' : 'Vérifier les réponses' }}
+      </button>
+    </section>
+
+    <!-- Section droite : Partie théorique -->
+    <section class="theory-section">
+      <h2 class="section-title">📚 Exploration de l'Univers Angular</h2>
+
+      <!-- Rapport comparatif -->
+      <div class="part-card">
+        <h3>Rapport Comparatif : Angular vs React vs Vue.js</h3>
+        
+        <div class="framework-comparison">
+          <div class="framework-card angular">
+            <h4>🅰️ Angular</h4>
+            <p><strong>Type :</strong> Framework complet</p>
+            <p><strong>Langage :</strong> TypeScript</p>
+            <p><strong>Architecture :</strong> MVC/MVVM</p>
+            
+            <div class="pros-cons">
+              <div class="pros">
+                <strong>✅ Avantages :</strong>
+                <ul>
+                  <li>Framework complet et structuré</li>
+                  <li>TypeScript intégré</li>
+                  <li>CLI puissant</li>
+                  <li>Idéal pour les grandes applications</li>
+                  <li>Écosystème intégré</li>
+                </ul>
+              </div>
+              <div class="cons">
+                <strong>❌ Inconvénients :</strong>
+                <ul>
+                  <li>Courbe d'apprentissage raide</li>
+                  <li>Plus verbeux</li>
+                  <li>Performance légèrement inférieure</li>
+                  <li>Bundle size plus important</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="framework-card react">
+            <h4>⚛️ React</h4>
+            <p><strong>Type :</strong> Bibliothèque UI</p>
+            <p><strong>Langage :</strong> JavaScript/JSX</p>
+            <p><strong>Architecture :</strong> Composants</p>
+            
+            <div class="pros-cons">
+              <div class="pros">
+                <strong>✅ Avantages :</strong>
+                <ul>
+                  <li>Flexibilité maximale</li>
+                  <li>Grande communauté</li>
+                  <li>Écosystème riche</li>
+                  <li>Performance excellente</li>
+                  <li>Learning curve modérée</li>
+                </ul>
+              </div>
+              <div class="cons">
+                <strong>❌ Inconvénients :</strong>
+                <ul>
+                  <li>Choix d'outils supplémentaires requis</li>
+                  <li>JSX peut être déroutant</li>
+                  <li>Mises à jour fréquentes</li>
+                  <li>Documentation fragmentée</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="framework-card vue">
+            <h4>🟢 Vue.js</h4>
+            <p><strong>Type :</strong> Framework progressif</p>
+            <p><strong>Langage :</strong> JavaScript</p>
+            <p><strong>Architecture :</strong> MVVM</p>
+            
+            <div class="pros-cons">
+              <div class="pros">
+                <strong>✅ Avantages :</strong>
+                <ul>
+                  <li>Courbe d'apprentissage douce</li>
+                  <li>Documentation excellente</li>
+                  <li>Performance optimale</li>
+                  <li>Flexible et progressif</li>
+                  <li>Syntaxe simple et claire</li>
+                </ul>
+              </div>
+              <div class="cons">
+                <strong>❌ Inconvénients :</strong>
+                <ul>
+                  <li>Écosystème moins mature</li>
+                  <li>Communauté plus petite</li>
+                  <li>Flexibilité peut mener à l'inconsistance</li>
+                  <li>Support entreprise limité</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analyse comparative -->
+      <div class="analysis-section">
+        <h3>📊 Analyse Comparative Détaillée</h3>
+        
+        <div class="analysis-grid">
+          <div class="analysis-item">
+            <h4>Différences Clés :</h4>
+            <ul>
+              <li><strong>Angular :</strong> Opinionated - impose une structure spécifique</li>
+              <li><strong>React :</strong> Non-opinionated - liberté totale d'architecture</li>
+              <li><strong>Vue :</strong> Progressif - peut être utilisé progressivement</li>
+            </ul>
+          </div>
+
+          <div class="analysis-item">
+            <h4>Performance :</h4>
+            <ul>
+              <li><strong>React :</strong> Virtual DOM, excellente performance</li>
+              <li><strong>Vue :</strong> Virtual DOM réactif, très performant</li>
+              <li><strong>Angular :</strong> Change detection, bonne performance</li>
+            </ul>
+          </div>
+
+          <div class="analysis-item">
+            <h4>Écosystème :</h4>
+            <ul>
+              <li><strong>Angular :</strong> Écosystème intégré (Router, HTTP, etc.)</li>
+              <li><strong>React :</strong> Écosystème riche mais fragmenté</li>
+              <li><strong>Vue :</strong> Écosystème cohérent et bien intégré</li>
+            </ul>
+          </div>
+
+          <div class="analysis-item">
+            <h4>Recommandations :</h4>
+            <ul>
+              <li><strong>Angular :</strong> Applications d'entreprise complexes</li>
+              <li><strong>React :</strong> Applications nécessitant flexibilité</li>
+              <li><strong>Vue :</strong> Prototypage rapide et petites/moyennes applications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>Iset Rades - Département TI - Mohamed Lassoued</p>
+    <p>Atelier Angular - Évaluation des Connaissances</p>
+  </footer>
+</div>
+
+<!-- Styles intégrés -->
+<style>
+  .evaluation-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+  }
+
+  .header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    color: white;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .part-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-left: 5px solid #3498db;
+  }
+
+  .part-card h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+  }
+
+  .question {
+    background: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #27ae60;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .question:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .question p {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+  }
+
+  .options {
+    list-style: none;
+    padding: 0;
+  }
+
+  .options li {
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .options li.correct {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+    font-weight: 600;
+  }
+
+  .explanation {
+    background: #e8f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border-left: 4px solid #17a2b8;
+    font-weight: 500;
+  }
+
+  .check-answers-btn {
+    width: 100%;
+    padding: 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+  }
+
+  .check-answers-btn:hover {
+    background: #2980b9;
+  }
+
+  .framework-comparison {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .framework-card {
+    padding: 20px;
+    border-radius: 10px;
+    border-top: 4px solid;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .framework-card.angular {
+    border-top-color: #dd0031;
+  }
+
+  .framework-card.react {
+    border-top-color: #61dafb;
+  }
+
+  .framework-card.vue {
+    border-top-color: #42b883;
+  }
+
+  .framework-card h4 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+
+  .pros-cons {
+    margin-top: 15px;
+  }
+
+  .pros {
+    color: #27ae60;
+    margin-bottom: 15px;
+  }
+
+  .cons {
+    color: #e74c3c;
+  }
+
+  .pros strong, .cons strong {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .analysis-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-top: 20px;
+  }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .analysis-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
+  }
+
+  .analysis-item h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+
+  .footer {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .analysis-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
