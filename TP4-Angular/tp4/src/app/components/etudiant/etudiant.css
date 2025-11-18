@@ -1,0 +1,233 @@
+.etudiant-container {
+  border: 2px solid #8e44ad;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f8f9fa;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.search-count {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.etudiant-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.etudiant-list {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.etudiants {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.etudiants li {
+  cursor: pointer;
+  position: relative;
+  background-color: #ecf0f1;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-left: 4px solid #3498db;
+}
+
+.etudiants li:hover {
+  background-color: #d6dbdf;
+  transform: translateX(5px);
+}
+
+.etudiants li.selected {
+  background-color: #3498db;
+  color: white;
+  border-left-color: #2980b9;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  color: white;
+  padding: 4px 8px;
+  background-color: #2c3e50;
+  border-radius: 12px;
+  margin-right: 12px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.etudiant-info {
+  flex: 1;
+}
+
+.name {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.classe {
+  display: block;
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.etudiants li.selected .classe {
+  color: #ecf0f1;
+}
+
+.moyenne-badge {
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+}
+
+.etudiant-details, .no-selection {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.no-selection-content {
+  text-align: center;
+  color: #7f8c8d;
+  padding: 40px 0;
+}
+
+.detail-card {
+  padding: 15px;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.detail-header h4 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.classe-badge {
+  background-color: #9b59b6;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.detail-info {
+  margin-bottom: 20px;
+}
+
+.detail-info p {
+  margin: 8px 0;
+}
+
+.notes-section {
+  margin-bottom: 20px;
+}
+
+.notes-section h5 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.notes-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.note-badge {
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  color: white;
+  font-size: 12px;
+}
+
+.note-badge.excellent {
+  background-color: #27ae60;
+}
+
+.note-badge.bon {
+  background-color: #f39c12;
+}
+
+.note-badge.faible {
+  background-color: #e74c3c;
+}
+
+.edit-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .etudiant-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .search-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .search-input {
+    margin-right: 0;
+    width: 100%;
+  }
+}

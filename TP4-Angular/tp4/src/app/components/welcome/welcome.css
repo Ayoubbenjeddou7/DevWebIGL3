@@ -1,0 +1,56 @@
+.welcome-container {
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f8f9fa;
+}
+
+.login-form, .welcome-message {
+  text-align: center;
+}
+
+.form-group {
+  margin: 15px 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.btn-login, .btn-logout {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.btn-login {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-logout {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.welcome-message h3 {
+  color: #27ae60;
+}

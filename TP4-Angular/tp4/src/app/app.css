@@ -1,0 +1,12 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+hr {
+  margin: 40px 0;
+  border: none;
+  border-top: 2px solid #ddd;
+}

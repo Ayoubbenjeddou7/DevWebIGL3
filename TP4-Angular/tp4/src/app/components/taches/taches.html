@@ -1,0 +1,130 @@
+<div class="taches-container">
+  <h2>Activité 5 & 6: Gestion des Tâches Complète</h2>
+  
+  <!-- Statistiques -->
+  <div class="stats">
+    <div class="stat-card">
+      <h3>📊 Statistiques</h3>
+      <p>Total: {{ taches.length }} tâches</p>
+      <p>Actives: {{ getNombreTachesActives() }}</p>
+      <p>Terminées: {{ taches.length - getNombreTachesActives() }}</p>
+    </div>
+  </div>
+
+  <!-- Formulaire d'ajout -->
+  <div class="add-tache-form">
+    <h3>➕ Ajouter une nouvelle tâche</h3>
+    <div class="form-row">
+      <input 
+        type="text" 
+        [(ngModel)]="nouvelleTache" 
+        placeholder="Description de la tâche..."
+        class="form-input">
+      
+      <select [(ngModel)]="nouvellePriorite" class="form-select">
+        <option value="haute">Haute Priorité</option>
+        <option value="moyenne">Priorité Moyenne</option>
+        <option value="basse">Basse Priorité</option>
+      </select>
+      
+      <button (click)="ajouterTache()" class="btn-add" [disabled]="!nouvelleTache">
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+  <!-- Filtres -->
+  <div class="filtres">
+    <button 
+      (click)="filtre = 'toutes'" 
+      [class.active]="filtre === 'toutes'"
+      class="btn-filtre">
+      Toutes ({{ taches.length }})
+    </button>
+    <button 
+      (click)="filtre = 'actives'" 
+      [class.active]="filtre === 'actives'"
+      class="btn-filtre">
+      Actives ({{ getNombreTachesActives() }})
+    </button>
+    <button 
+      (click)="filtre = 'terminees'" 
+      [class.active]="filtre === 'terminees'"
+      class="btn-filtre">
+      Terminées ({{ taches.length - getNombreTachesActives() }})
+    </button>
+  </div>
+
+  <!-- Liste des tâches -->
+  <div class="taches-list">
+    <!-- Message si aucune tâche -->
+    <ng-container *ngIf="tachesFiltrees.length === 0; else listeTaches">
+      <div class="no-taches-message">
+        <h3>🎉 Aucune tâche à afficher !</h3>
+        <p *ngIf="filtre === 'toutes' && taches.length === 0">
+          Vous n'avez pas de tâches en cours. Ajoutez-en une !
+        </p>
+        <p *ngIf="filtre === 'actives'">
+          Toutes les tâches sont terminées ! Bravo ! 🏆
+        </p>
+        <p *ngIf="filtre === 'terminees'">
+          Aucune tâche terminée pour le moment.
+        </p>
+      </div>
+    </ng-container>
+
+    <!-- Template pour la liste des tâches -->
+    <ng-template #listeTaches>
+      <div *ngFor="let tache of tachesFiltrees; let i = index" 
+           class="tache-card"
+           [ngClass]="{
+             'completed': tache.completed,
+             'high-priority': tache.priorite === 'haute',
+             'medium-priority': tache.priorite === 'moyenne',
+             'low-priority': tache.priorite === 'basse'
+           }"
+           [ngStyle]="{
+             'border-left': '4px solid ' + getCouleurPriorite(tache.priorite),
+             'opacity': tache.completed ? '0.7' : '1'
+           }">
+        
+        <div class="tache-content">
+          <div class="tache-header">
+            <span class="priorite-icon">
+              {{ getIconePriorite(tache.priorite) }}
+            </span>
+            <span class="tache-description" 
+                  [ngClass]="{'completed-text': tache.completed}">
+              {{ tache.description }}
+            </span>
+          </div>
+          
+          <div class="tache-meta">
+            <small class="date">
+              Créée le {{ tache.dateCreation | date:'dd/MM/yyyy' }}
+            </small>
+            <span class="priorite-badge" 
+                  [ngStyle]="{'background-color': getCouleurPriorite(tache.priorite)}">
+              {{ tache.priorite | uppercase }}
+            </span>
+          </div>
+        </div>
+        
+        <div class="tache-actions">
+          <button 
+            (click)="basculerStatut(tache)" 
+            [ngClass]="tache.completed ? 'btn-undo' : 'btn-complete'"
+            class="btn-action">
+            {{ tache.completed ? '↶' : '✓' }}
+          </button>
+          
+          <button 
+            (click)="supprimerTache(i)" 
+            class="btn-action btn-delete">
+            🗑️
+          </button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

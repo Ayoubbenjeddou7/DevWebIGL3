@@ -1,0 +1,34 @@
+<div class="welcome-container">
+  <h2>Activité 1: Affichage Conditionnel avec ngIf</h2>
+  
+  <div *ngIf="!isLoggedIn" class="login-form">
+    <h3>Connexion</h3>
+    <p>Pour vous connecter, entrez "Ayoub" comme nom</p>
+    
+    <div class="form-group">
+      <label for="username">Nom:</label>
+      <input 
+        type="text" 
+        id="username" 
+        [value]="username" 
+        (input)="onUsernameChange($event)"
+        placeholder="Entrez votre nom">
+    </div>
+    
+    <button (click)="toggleLogin()" class="btn-login">
+      Se connecter
+    </button>
+    
+    <p *ngIf="loginMessage && !isLoggedIn" class="error-message">
+      {{ loginMessage }}
+    </p>
+  </div>
+
+  <div *ngIf="isLoggedIn" class="welcome-message">
+    <h3>🎉 Bienvenue, {{ username }} !</h3>
+    <p>Vous êtes maintenant connecté à notre application.</p>
+    <button (click)="toggleLogin()" class="btn-logout">
+      Se déconnecter
+    </button>
+  </div>
+</div>

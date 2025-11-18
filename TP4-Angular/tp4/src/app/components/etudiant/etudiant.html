@@ -1,0 +1,93 @@
+<div class="etudiant-container">
+  <h2>Atelier Guidé: Gestion des Étudiants</h2>
+  
+  <!-- Barre de recherche -->
+  <div class="search-bar">
+    <input 
+      type="text" 
+      [(ngModel)]="searchTerm" 
+      placeholder="Rechercher un étudiant ou une classe..."
+      class="search-input">
+    <span class="search-count">
+      {{ filteredEtudiants.length }} étudiant(s) trouvé(s)
+    </span>
+  </div>
+
+  <div class="etudiant-content">
+    <!-- Liste des étudiants -->
+    <div class="etudiant-list">
+      <h3>Liste des Étudiants</h3>
+      
+      <ul class="etudiants">
+        <li *ngFor="let etudiant of filteredEtudiants" 
+            [class.selected]="etudiant === selectedEtudiant"
+            (click)="onSelect(etudiant)">
+          <span class="badge">{{ etudiant.id }}</span>
+          <div class="etudiant-info">
+            <span class="name">{{ etudiant.name }}</span>
+            <span class="classe">{{ etudiant.classe }}</span>
+          </div>
+          <span class="moyenne-badge" 
+                [ngStyle]="{'background-color': getMoyenneColor(getMoyenne(etudiant.notes))}">
+            {{ getMoyenne(etudiant.notes) | number:'1.1-1' }}
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Détails de l'étudiant sélectionné -->
+    <div *ngIf="selectedEtudiant" class="etudiant-details">
+      <h3>Détails de l'Étudiant</h3>
+      
+      <div class="detail-card">
+        <div class="detail-header">
+          <h4>{{ selectedEtudiant.name | uppercase }}</h4>
+          <span class="classe-badge">{{ selectedEtudiant.classe }}</span>
+        </div>
+        
+        <div class="detail-info">
+          <p><strong>ID:</strong> {{ selectedEtudiant.id }}</p>
+          <p><strong>Email:</strong> {{ selectedEtudiant.email }}</p>
+          <p><strong>Moyenne:</strong> 
+            <span [ngStyle]="{'color': getMoyenneColor(getMoyenne(selectedEtudiant.notes))}">
+              {{ getMoyenne(selectedEtudiant.notes) | number:'1.1-1' }}/20
+            </span>
+          </p>
+        </div>
+
+        <!-- Notes -->
+        <div class="notes-section">
+          <h5>Notes:</h5>
+          <div class="notes-list">
+            <span *ngFor="let note of selectedEtudiant.notes" 
+                  class="note-badge"
+                  [ngClass]="{
+                    'excellent': note >= 16,
+                    'bon': note >= 12 && note < 16,
+                    'faible': note < 12
+                  }">
+              {{ note }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Édition du nom -->
+        <div class="edit-section">
+          <label><strong>Modifier le nom:</strong></label>
+          <input 
+            [(ngModel)]="selectedEtudiant.name" 
+            placeholder="Nom de l'étudiant"
+            class="edit-input">
+        </div>
+      </div>
+    </div>
+
+    <!-- Message si aucun étudiant sélectionné -->
+    <div *ngIf="!selectedEtudiant" class="no-selection">
+      <div class="no-selection-content">
+        <h4>👆 Sélectionnez un étudiant</h4>
+        <p>Cliquez sur un étudiant dans la liste pour voir ses détails</p>
+      </div>
+    </div>
+  </div>
+</div>

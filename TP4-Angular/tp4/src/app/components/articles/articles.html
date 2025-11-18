@@ -1,0 +1,66 @@
+<div class="articles-container">
+  <h2>Activité 2 & 3: Liste d'Articles avec ngFor et ngClass</h2>
+  
+  <!-- Formulaire d'ajout -->
+  <div class="add-article-form">
+    <h3>Ajouter un nouvel article</h3>
+    <div class="form-group">
+      <input 
+        type="text" 
+        [(ngModel)]="newTitle" 
+        placeholder="Titre de l'article"
+        class="form-input">
+    </div>
+    
+    <div class="form-group">
+      <textarea 
+        [(ngModel)]="newContent" 
+        placeholder="Contenu de l'article"
+        class="form-textarea"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label>Importance:</label>
+      <select [(ngModel)]="newImportance" class="form-select">
+        <option value="élevée">Élevée</option>
+        <option value="moyenne">Moyenne</option>
+        <option value="faible">Faible</option>
+      </select>
+    </div>
+    
+    <button (click)="addArticle()" class="btn-add" [disabled]="!newTitle || !newContent">
+      ➕ Ajouter l'article
+    </button>
+  </div>
+
+  <!-- Liste des articles -->
+  <div class="articles-list">
+    <h3>Liste des Articles ({{ articles.length }})</h3>
+    
+    <div *ngIf="articles.length === 0" class="no-articles">
+      <p>Aucun article à afficher</p>
+    </div>
+    
+    <div *ngFor="let article of articles; let i = index" 
+         class="article-card"
+         [ngClass]="{
+           'important': article.importance === 'élevée',
+           'moyen': article.importance === 'moyenne',
+           'faible': article.importance === 'faible'
+         }">
+      
+      <div class="article-header">
+        <h4>{{ article.titre }}</h4>
+        <span class="importance-badge {{ article.importance }}">
+          {{ article.importance }}
+        </span>
+      </div>
+      
+      <p class="article-content">{{ article.contenu }}</p>
+      
+      <button (click)="deleteArticle(i)" class="btn-delete">
+        🗑️ Supprimer
+      </button>
+    </div>
+  </div>
+</div>

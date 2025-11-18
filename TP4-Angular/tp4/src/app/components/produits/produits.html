@@ -1,0 +1,79 @@
+<div class="produits-container">
+  <h2>Activité 4: Styles Dynamiques avec ngStyle</h2>
+  
+  <!-- Formulaire d'ajout -->
+  <div class="add-produit-form">
+    <h3>Ajouter un nouveau produit</h3>
+    <div class="form-row">
+      <input 
+        type="text" 
+        [(ngModel)]="nouveauProduit" 
+        placeholder="Nom du produit"
+        class="form-input">
+      
+      <input 
+        type="number" 
+        [(ngModel)]="nouveauStock" 
+        placeholder="Stock"
+        min="0"
+        class="form-input">
+      
+      <input 
+        type="number" 
+        [(ngModel)]="nouveauPrix" 
+        placeholder="Prix"
+        min="0"
+        step="0.01"
+        class="form-input">
+    </div>
+    
+    <button (click)="ajouterProduit()" class="btn-add" 
+            [disabled]="!nouveauProduit || nouveauStock < 0 || nouveauPrix <= 0">
+      ➕ Ajouter le produit
+    </button>
+  </div>
+
+  <!-- Liste des produits -->
+  <div class="produits-list">
+    <h3>Inventaire des Produits</h3>
+    
+    <div *ngFor="let produit of produits; let i = index" class="produit-card">
+      <div class="produit-info">
+        <h4>{{ produit.nom }}</h4>
+        <p class="prix">{{ produit.prix | currency:'EUR' }}</p>
+        
+        <div class="stock-info">
+          <span class="stock-label">Stock:</span>
+          <span class="stock-value" 
+                [ngStyle]="{'color': getStockColor(produit.stock), 'font-weight': 'bold'}">
+            {{ produit.stock }} unités
+          </span>
+          <span class="stock-message" 
+                [ngStyle]="{'color': getStockColor(produit.stock)}">
+            ({{ getStockMessage(produit.stock) }})
+          </span>
+        </div>
+        
+        <!-- Barre de progression visuelle -->
+        <div class="stock-bar">
+          <div class="stock-bar-fill" 
+               [ngStyle]="{
+                 'width': (produit.stock / 100 * 100) + '%',
+                 'background-color': getStockColor(produit.stock)
+               }">
+          </div>
+        </div>
+      </div>
+      
+      <div class="produit-actions">
+        <button (click)="augmenterStock(i)" class="btn-stock btn-increase">
+          ↑ +10
+        </button>
+        <button (click)="diminuerStock(i)" class="btn-stock btn-decrease" 
+                [disabled]="produit.stock <= 0">
+          ↓ -10
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
