@@ -1,0 +1,23 @@
+<div class="home-container">
+  <h1>{{ titre }}</h1>
+
+  <div *ngIf="!quizCommence" class="quiz-intro">
+    <p>Bienvenue dans notre quiz interactif !</p>
+    <p>Répondez aux questions et testez vos connaissances.</p>
+
+    <div class="regles">
+      <h3>Règles du jeu:</h3>
+      <ul>
+        <li>✓ Répondez à toutes les questions</li>
+        <li>✓ Gagnez 10 points pour les bonnes réponses</li>
+        <li>✓ Perdez 0 point pour les mauvaises réponses</li>
+        <li>✓ Vous ne pouvez répondre qu'une fois par question</li>
+      </ul>
+    </div>
+
+    <button class="btn-commencer" (click)="commencerQuiz()">🚀 Commencer le Quiz</button>
+  </div>
+
+  <!-- Afficher le jeu quand le quiz commence -->
+  <app-game *ngIf="quizCommence" (retourAccueilEvent)="retourAccueil()"> </app-game>
+</div>

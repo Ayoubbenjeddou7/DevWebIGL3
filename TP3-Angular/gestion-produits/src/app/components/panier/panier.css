@@ -1,0 +1,43 @@
+.panier-container {
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #e8f4f8;
+  margin: 20px 0;
+}
+
+.panier-vide {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  padding: 20px;
+}
+
+.liste-articles {
+  list-style-type: none;
+  padding: 0;
+}
+
+.article-item {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: white;
+  border-radius: 5px;
+  border-left: 4px solid #3498db;
+}
+
+.btn-commander {
+  width: 100%;
+  padding: 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.btn-commander:hover {
+  background-color: #c0392b;
+}

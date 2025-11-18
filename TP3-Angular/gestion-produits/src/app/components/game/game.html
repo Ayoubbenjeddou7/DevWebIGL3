@@ -1,0 +1,107 @@
+<div class="game-container">
+  <div class="quiz-header">
+    <h2>Quiz en cours</h2>
+    <button class="btn-retour" (click)="retourAccueil()" *ngIf="!quizTermine">
+      ← Retour à l'accueil
+    </button>
+  </div>
+  
+  <div *ngIf="!quizTermine" class="quiz-interface">
+    
+    <!-- Progression -->
+    <div class="progression">
+      <span class="numero-question">Question {{ questionActuelle + 1 }} / {{ questions.length }}</span>
+      <div class="barre-progression">
+        <div class="progression-remplie" 
+             [style.width]="((questionActuelle + 1) / questions.length) * 100 + '%'">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Question actuelle -->
+    <div class="question-card">
+      <h3>{{ questions[questionActuelle].question }}</h3>
+      
+      <!-- Options de réponse -->
+      <div class="options-reponse">
+        <button 
+          *ngFor="let option of questions[questionActuelle].options"
+          (click)="selectionnerReponse(option)"
+          [class.selectionnee]="questions[questionActuelle].reponseUtilisateur === option"
+          [disabled]="questions[questionActuelle].reponseUtilisateur !== ''"
+          class="btn-option">
+          {{ option }}
+        </button>
+      </div>
+      
+      <!-- Indicateur de réponse -->
+      <div *ngIf="questions[questionActuelle].reponseUtilisateur !== ''" 
+           class="feedback-reponse">
+        <p *ngIf="questions[questionActuelle].reponseUtilisateur === questions[questionActuelle].reponse"
+           class="feedback-correct">
+          ✓ Bonne réponse !
+        </p>
+        <p *ngIf="questions[questionActuelle].reponseUtilisateur !== questions[questionActuelle].reponse"
+           class="feedback-incorrect">
+          ✗ Mauvaise réponse. La bonne réponse était: <strong>{{ questions[questionActuelle].reponse }}</strong>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="navigation">
+      <button 
+        (click)="questionPrecedente()" 
+        [disabled]="questionActuelle === 0"
+        class="btn-nav btn-precedent">
+        ← Question précédente
+      </button>
+      
+      <button 
+        (click)="questionSuivante()" 
+        [disabled]="!questions[questionActuelle].reponseUtilisateur"
+        class="btn-nav btn-suivant">
+        {{ questionActuelle === questions.length - 1 ? 'Voir les résultats' : 'Question suivante →' }}
+      </button>
+    </div>
+  </div>
+  
+  <!-- Résultats -->
+  <div *ngIf="quizTermine" class="resultats">
+    <div class="resultat-header">
+      <h2>🎉 Quiz Terminé !</h2>
+      <div class="score-final" [class.excellent]="score >= 25" [class.bon]="score >= 15 && score < 25" [class.moyen]="score < 15">
+        <h3>Votre score final: {{ score }}/{{ questions.length * 10 }}</h3>
+        <p class="message-score">{{ getMessageScore() }}</p>
+      </div>
+    </div>
+    
+    <div class="details-questions">
+      <h4>Détail de vos réponses:</h4>
+      <div *ngFor="let question of questions; let i = index" 
+           class="detail-question"
+           [class.correct]="reponseEstCorrecte(i)"
+           [class.incorrect]="!reponseEstCorrecte(i)">
+        <div class="question-titre">
+          <strong>Q{{ i + 1 }}:</strong> {{ question.question }}
+        </div>
+        <div class="reponses-comparaison">
+          <span class="votre-reponse">Votre réponse: <strong>{{ question.reponseUtilisateur || 'Non répondue' }}</strong></span>
+          <span class="bonne-reponse">Bonne réponse: <strong>{{ question.reponse }}</strong></span>
+        </div>
+        <div class="statut-reponse">
+          {{ reponseEstCorrecte(i) ? '✓ Correct' : '✗ Incorrect' }}
+        </div>
+      </div>
+    </div>
+    
+    <div class="actions-resultat">
+      <button (click)="recommencerQuiz()" class="btn-recommencer">
+        🔄 Recommencer le Quiz
+      </button>
+      <button (click)="retourAccueil()" class="btn-accueil">
+        🏠 Retour à l'accueil
+      </button>
+    </div>
+  </div>
+</div>

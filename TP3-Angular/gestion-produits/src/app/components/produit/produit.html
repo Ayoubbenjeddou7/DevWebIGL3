@@ -1,0 +1,32 @@
+<div class="produit-card" 
+     [ngClass]="{'en-stock': enStock, 'hors-stock': !enStock}"
+     [ngStyle]="{'opacity': enStock ? '1' : '0.5'}">
+  
+  <!-- Property Binding pour l'image -->
+  <img [src]="imageUrl" [alt]="nomProduit" class="produit-image">
+  
+  <!-- Interpolation pour le nom du produit -->
+  <h3>{{ nomProduit }}</h3>
+  
+  <!-- Pipe pour formater le prix -->
+  <p class="prix">Prix: {{ prix | currency:'EUR' }}</p>
+  <p class="description">Description du produit...</p>
+  
+  <!-- Event Binding pour les boutons -->
+  <div class="boutons">
+    <button (click)="toggleStock()" class="btn-stock">
+      {{ enStock ? 'Marquer comme Hors Stock' : 'Marquer comme En Stock' }}
+    </button>
+    
+    <button (click)="ajouterProduit()" 
+            [disabled]="!enStock" 
+            class="btn-ajouter">
+      Ajouter au Panier
+    </button>
+  </div>
+  
+  <!-- Affichage du statut -->
+  <p [class]="enStock ? 'statut-ok' : 'statut-ko'">
+    {{ enStock ? '✓ En stock' : '✗ Hors stock' }}
+  </p>
+</div>

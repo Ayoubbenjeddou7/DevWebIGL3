@@ -1,0 +1,74 @@
+.produit-card {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.en-stock {
+  border-color: green;
+  background-color: #e0ffe0;
+}
+
+.hors-stock {
+  border-color: red;
+  background-color: #ffe0e0;
+}
+
+.produit-image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.prix {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.description {
+  color: #7f8c8d;
+  margin: 10px 0;
+}
+
+.boutons {
+  margin: 15px 0;
+}
+
+.btn-stock, .btn-ajouter {
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-stock {
+  background-color: #f39c12;
+  color: white;
+}
+
+.btn-ajouter {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-ajouter:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.statut-ok {
+  color: green;
+  font-weight: bold;
+}
+
+.statut-ko {
+  color: red;
+  font-weight: bold;
+}

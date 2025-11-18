@@ -1,0 +1,43 @@
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.quiz-intro {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.regles {
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.regles ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.regles li {
+  padding: 5px 0;
+}
+
+.btn-commencer {
+  padding: 15px 30px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-commencer:hover {
+  background-color: #219a52;
+}

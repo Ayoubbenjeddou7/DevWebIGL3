@@ -1,0 +1,21 @@
+<div class="panier-container">
+  <h2>🛒 Panier d'achat</h2>
+  
+  <div *ngIf="items.length === 0" class="panier-vide">
+    Votre panier est vide
+  </div>
+  
+  <div *ngIf="items.length > 0">
+    <p>Nombre d'articles: {{ items.length }}</p>
+    
+    <ul class="liste-articles">
+      <li *ngFor="let item of items; let i = index" class="article-item">
+        {{ i + 1 }}. {{ item }}
+      </li>
+    </ul>
+    
+    <button class="btn-commander" (click)="commander()">
+      Commander ({{ items.length }} articles)
+    </button>
+  </div>
+</div>

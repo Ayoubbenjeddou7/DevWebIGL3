@@ -1,0 +1,27 @@
+<!-- Activité 1 : Composant Bienvenue -->
+<app-bienvenue></app-bienvenue>
+<hr>
+
+<!-- Activités 2-3-5-6-7-8 : Composant Produit -->
+<app-produit 
+  [nomProduit]="'Ordinateur Portable'"
+  (ajouterAuPanier)="gererAjoutAuPanier($event)">
+</app-produit>
+<hr>
+
+<!-- Activité 4 : Composant Utilisateur -->
+<app-utilisateur></app-utilisateur>
+<hr>
+
+<!-- Activité 6 : Composant Panier -->
+<app-panier [items]="panierItems"></app-panier>
+<hr>
+
+<!-- Projet Quiz -->
+<app-home></app-home>
+<hr>
+
+<!-- Composants Game, Question et Score intégrés dans Home -->
+<!-- <app-game></app-game> -->
+<!-- <app-question></app-question> -->
+<!-- <app-score></app-score> -->
