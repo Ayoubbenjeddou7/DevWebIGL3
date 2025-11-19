@@ -1,38 +1,53 @@
-<div class="etudiant-card">
-  <h2>{{etudiant.name | uppercase}}</h2>
-  
-  <table>
-    <tr>
-      <td><strong>ID:</strong></td>
-      <td>{{etudiant.id}}</td>
-    </tr>
-    <tr>
-      <td><strong>Prénom:</strong></td>
-      <td>{{etudiant.name}}</td>
-    </tr>
-    <tr>
-      <td><strong>Nom:</strong></td>
-      <td>{{etudiant.lastname}}</td>
-    </tr>
-    <tr>
-      <td><strong>Classe:</strong></td>
-      <td>{{etudiant.classe}}</td>
-    </tr>
-    <tr>
-      <td><strong>Moyenne:</strong></td>
-      <td>{{etudiant.average | percent}}</td>
-    </tr>
-    <tr>
-      <td><strong>Date de naissance:</strong></td>
-      <td>{{etudiant.birthdate | date:'dd/MM/yyyy'}}</td>
-    </tr>
-  </table>
-
-  <div class="form-section">
-    <h3>Modifier le nom</h3>
-    <label>
-      <strong>Nom: </strong>
-      <input [(ngModel)]="etudiant.name" placeholder="nom"/>
-    </label>
+<div class="etudiant-container">
+  <div class="etudiant-title">
+    {{ etudiant.name | uppercase }} - Détails
   </div>
+
+  <div class="etudiant-info">
+    <div class="info-item">
+      <span class="info-label">ID:</span>
+      <span class="info-value">{{ etudiant.id }}</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Nom:</span>
+      <span class="info-value">{{ etudiant.name }}</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Prénom:</span>
+      <span class="info-value">{{ etudiant.lastname }}</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Moyenne:</span>
+      <span class="info-value">{{ etudiant.average | number:'1.1-2' }}</span>
+    </div>
+  </div>
+
+  <div class="etudiant-form">
+    <div class="form-group">
+      <label class="form-label">Modifier le nom:</label>
+      <input 
+        class="form-input" 
+        [(ngModel)]="etudiant.name" 
+        placeholder="Entrez le nouveau nom"/>
+    </div>
+  </div>
+
+  <table class="etudiant-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Moyenne</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ etudiant.id }}</td>
+        <td>{{ etudiant.name | uppercase }}</td>
+        <td>{{ etudiant.lastname }}</td>
+        <td>{{ etudiant.average | number:'1.1-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

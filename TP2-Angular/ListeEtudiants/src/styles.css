@@ -1,46 +1,23 @@
-/* Styles globaux de l'application */
+/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
-
 h2, h3 {
   color: #444;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
-
 body {
   margin: 2em;
-  background-color: #f5f5f5;
 }
-
-.myname {
-  color: #e74c3c;
-  font-style: italic;
-  padding: 10px;
-  background-color: #fff;
-  border-left: 4px solid #e74c3c;
+body, input[type="text"], button {
+  color: #333;
+  font-family: Cambria, Georgia;
 }
-
-/* Styles pour les formulaires */
-input {
-  padding: 8px;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 8px 16px;
-  background-color: #369;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #2557a7;
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }

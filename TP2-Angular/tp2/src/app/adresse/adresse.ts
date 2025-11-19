@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './adresse.html',
   styleUrls: ['./adresse.css']
 })
-export class Adresse{
-  rue = '123 Rue Mongi Slim';
-  ville = 'Tunis';
-  codePostal = '1000';
+export class Adresse {
+  rue = '123 Rue Exemple';
 }

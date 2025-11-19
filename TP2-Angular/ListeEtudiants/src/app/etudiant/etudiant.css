@@ -1,39 +1,111 @@
-.etudiant-card {
-  border: 2px solid #369;
-  border-radius: 8px;
+/* Style du conteneur principal */
+.etudiant-container {
+  max-width: 600px;
+  margin: 20px auto;
   padding: 20px;
-  margin: 20px 0;
-  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-table {
+/* Style du titre */
+.etudiant-title {
+  color: #2c3e50;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+/* Style des informations étudiant */
+.etudiant-info {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border-left: 4px solid #3498db;
+}
+
+.info-item {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #2c3e50;
+  display: inline-block;
+  width: 100px;
+}
+
+.info-value {
+  color: #34495e;
+}
+
+/* Style du formulaire */
+.etudiant-form {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #e74c3c;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Style du tableau */
+.etudiant-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
-}
-
-table td {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-table tr:last-child td {
-  border-bottom: none;
-}
-
-.form-section {
   margin-top: 20px;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-radius: 4px;
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.form-section label {
-  display: block;
+.etudiant-table th {
+  background-color: #34495e;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
 }
 
-.form-section input {
-  margin-top: 10px;
-  width: 100%;
+.etudiant-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.etudiant-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.etudiant-table tr:last-child td {
+  border-bottom: none;
 }
